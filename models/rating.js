@@ -1,8 +1,8 @@
 class Rating {
-  constructor(id, from_user, to_user, rating) {
+  constructor(id, fromUser, toUser, rating) {
     this.id = id;
-    this.from_user = this.from_user;
-    this.to_user = this.to_user;
+    this.fromUser = fromUser;
+    this.toUser = toUser;
     this.rating = rating;
   }
 }
