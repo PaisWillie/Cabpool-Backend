@@ -1,7 +1,8 @@
 class CarpoolOffer {
-  constructor(id, offeringUser) {
+  constructor(id, offeringUser, rideID) {
     this.id = id;
     this.offeringUser = offeringUser;
+    this.rideID = rideID;
   }
 }
 

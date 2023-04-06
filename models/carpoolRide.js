@@ -1,5 +1,6 @@
 class CarpoolRide {
-  constructor(position, start, end, stops, riders, taxiID) {
+  constructor(id, position, start, end, stops, riders, taxiID) {
+    this.id = id;
     this.position = position;
     this.start = start;
     this.end = end;
