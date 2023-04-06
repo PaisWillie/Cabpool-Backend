@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use('/user', userRoutes);
+app.use('/user', userRoutes.routes);
 
 app.listen(config.port, () =>
   console.log(`Server started on url ${config.url}`)
