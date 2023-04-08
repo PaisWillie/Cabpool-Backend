@@ -1,11 +1,14 @@
 const express = require('express');
-const { getRating, addRating, updateRating } = require('../controllers/RatingsController');
+const { requestRating, submitRating } = require('../controllers/RatingsController');
+
 
 const router = express.Router();
 
-router.get('/rating', getRating);
-router.post('/rating/add', addRating);
-router.post('/rating/update', updateRating);
+// Submits a rating
+router.post('/submit', submitRating);
+
+// Requests a rating
+router.get('/request', requestRating);
 
 
 

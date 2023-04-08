@@ -1,9 +1,10 @@
 const express = require('express');
-const {getTaxi} = require('../controllers/taxisController');
+const {getTaxi} = require('../controllers/taxiController');
 
 const router = express.Router();
 
-router.get('/taxi/add', getTaxi);
+// Gets the taxi's information
+router.get('/taxi', getTaxi);
 
 
 module.exports = {
