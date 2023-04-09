@@ -39,7 +39,7 @@ const offerCarpool = async (req, res, next) => {
 
 } catch (error){
         console.error(error);
-        res.status(401).send(false);
+        res.status(401).json({valid: false});
         console.log('Invalid code for the taxiID')
     }
 };

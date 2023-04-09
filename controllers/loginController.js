@@ -15,11 +15,11 @@ const login = async (req, res, next) => {
         throw new Error(false);
       }
   
-      res.status(200).send(true);
+      res.status(200).send({valid: true});
       console.log('User logged in successfully')
     } catch (error) {
       console.error(error);
-      res.status(401).send(false);
+      res.status(401).send({valid: false});
       console.log('Invalid email or password')
     }
   };

@@ -19,11 +19,11 @@ const register = async (req, res) => {
       user["avgRating"] = 0;
       user["tripNum"] = 0
       await ref.add(user);
-      res.status(200).send(true);
+      res.status(200).send({valid: true});
       console.log('user added successfully');
     } catch (error) {
       console.error(error);
-      res.status(400).send(false);
+      res.status(400).json({valid: false});
     }
   };
 

@@ -8,7 +8,7 @@ const user_ref = firestore.collection('users');
 
 const submitRating  = async (req, res) => {
     try {
-        const {fromUser, rating, toUser} = req.body;
+        // const {fromUser, rating, toUser} = req.body;
         //Updates the user's average rating
         // const snapshot = await user_ref.where("email", "==", toUser).get();
         // let avgRating = 0;
@@ -19,30 +19,29 @@ const submitRating  = async (req, res) => {
 
         // Adds the rating to the database
         await ref.add(data);
-        res.status(200).send('Rating was submitted.')
+        res.status(200).json({valid: true});
     } catch (error) {
         console.error(error);
-        res.status(401).send(error.message);
+        res.status(401).json({valid: false});
     }
 };
 
-const requestRating = async (req, res, next) => {
+const requestRating = async (req, res) => {
     try {
-      const {id} = req.body;
-  
-      // Get the user document with the specified ID from the database
-      const snapshot = await ref.where('id', '==', id).get();
+
+      // Retrieves the user's rating and sends the user's rating
+      const {email} = req.body;
+      const snapshot = await user_ref.where('email', '==', email).get();
       if (snapshot.empty) {
-        throw new Error(`Rating with ID ${id} not found`);
+        throw new Error(`Rating with ID ${email} not found`);
       }
-  
-      // Extract the user's JSON data from the document and sends it
-      const userDoc = await usersRef.doc(id).get();
-      const data = userDoc.data()
-      res.status(200).send(data);
+      const userDoc = snapshot.docs[0];
+      const avgRating = userDoc.get('avgRating');
+      res.status(200).json({avgRating: avgRating});
+
     } catch (error) {
-      console.error(error);
-      res.status(404).send(false);
+      console.error(false);
+      res.status(404).json({valid: false});
     }
   };
 
