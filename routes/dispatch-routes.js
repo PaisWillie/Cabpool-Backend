@@ -1,5 +1,5 @@
 const express = require('express');
-const { offerCarpool, requestCarpool, findCarpool } = require('../controllers/dispatchController');
+const { offerCarpool, requestCarpool, selectCarpool, acceptCarpool } = require('../controllers/dispatchController');
 
 
 const router = express.Router();
@@ -11,7 +11,10 @@ router.get('/offer', offerCarpool);
 router.post('/request', requestCarpool);
 
 // Select a Carpool
-router.post('/find', findCarpool);
+router.post('/select', selectCarpool);
+
+// Accepts a carpool Request
+router.post('./accept', acceptCarpool);
 
 
 

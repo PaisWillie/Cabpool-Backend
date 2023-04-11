@@ -8,9 +8,13 @@ const user_ref = firestore.collection('users');
 
 const submitRating  = async (req, res) => {
     try {
-        // const {fromUser, rating, toUser} = req.body;
+  
         //Updates the user's average rating
+        // const {fromUser, rating, toUser} = req.body;
         // const snapshot = await user_ref.where("email", "==", toUser).get();
+        // if (snapshot.empty) {
+        //   throw new Error();
+        // }
         // let avgRating = 0;
         // snapshot.forEach(doc => {
         // avgRating = doc.data().avgRating;
