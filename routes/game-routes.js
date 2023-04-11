@@ -5,16 +5,16 @@ const { initGame, startGame, playGame, awardPrizes } = require('../controllers/g
 const router = express.Router();
 
 // initializes the challenge
-router.post('/init', initGame);
+// router.post('/init', initGame);
 
-// starts the game
-router.post('/start', startGame);
+// // starts the game
+// router.post('/start', startGame);
 
 // plays the game
 router.post('/play', playGame);
 
-// shows the awards
-router.post('/awards', awardPrizes);
+// // shows the awards
+// router.post('/awards', awardPrizes);
 
 
 module.exports = {
